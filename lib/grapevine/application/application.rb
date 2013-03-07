@@ -1,6 +1,5 @@
 module Grapevine
   class Application < Grapevine::API
-    include Grapevine::MountRoutes
-
+    extend MountRoutes
   end
 end

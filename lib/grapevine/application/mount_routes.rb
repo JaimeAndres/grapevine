@@ -12,13 +12,13 @@ module Grapevine
     #   end
     #
     #   You must note the 'module V1' and the name of the class must be 'Routes'
-    def self.mount_routes
+    def mount_routes
       if Dir.exists?(File.dirname(__FILE__) + '/../app')
         Dir.chdir(File.dirname(__FILE__) + '/../app/information')
 
         Dir.entries('.').each do |version|
           if version =~ /v\d/
-            mount "MontevibusAPI::#{version.upcase}::Routes".constantize
+            mount "::#{version.upcase}::Routes".constantize
           end
         end
       end
