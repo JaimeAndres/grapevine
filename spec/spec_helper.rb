@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'debugger'
 
+require 'rack'
+
 require File.expand_path('../../lib/grapevine', __FILE__)
 
 RSpec.configure do |config|

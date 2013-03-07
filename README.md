@@ -20,6 +20,18 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+### Considerations
+* If you don't want to use the routes generator, place the new routes file inside app/information/<version_number>/routes.rb
+* The <version_number> format must be 'v1', 'v2', etc
+
+* The format for responses and error are json, if you want to change them, just change it in your class, e.g.
+
+```ruby
+format :txt
+error_formatter :txt
+```
+* The default web server is [thin](http://code.macournoyer.com/thin/) but you can change it in the gemfile
+
 ## Contributing
 
 1. Fork it

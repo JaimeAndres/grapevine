@@ -1,6 +1,9 @@
 require "grapevine/version"
-require 'grapevine/structure/grapevine'
+autoload :Structure, 'grapevine/structure/grapevine'
+
+require 'json'
+require 'grape'
 
 module Grapevine
-  # Your code goes here...
+  autoload :API, 'grapevine/api'
 end

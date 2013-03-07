@@ -19,7 +19,10 @@ Gem::Specification.new do |gem|
 
   # dependencies
   gem.add_dependency "thor"
-  gem.add_dependency "active_support"
+  gem.add_dependency "json"
+  gem.add_dependency "grape"
+  gem.add_dependency "i18n"
+
   # dev_dependencies
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "debugger"
