@@ -1,0 +1,17 @@
+require 'rubygems'
+
+ENV["GRAPE_ENV"] ||= 'test'
+
+require File.expand_path("../../config/application", __FILE__)
+
+require 'debugger'
+require 'rack'
+require 'rack/test'
+
+def app
+  <%= app_name.camelize %>::Application
+end
+
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+end

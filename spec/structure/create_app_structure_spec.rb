@@ -34,6 +34,11 @@ describe 'Create a Grapevine App' do
       file = File.open('foo_app/config.ru', 'r')
       file.read.should include "#{app_name}::Application"
     end
+
+    it 'should create spec_helper and first spec' do
+      File.exists?('foo_app/spec/spec_helper.rb').should == true
+      File.exists?('foo_app/spec/initializers/start_server_spec.rb').should == true
+    end
   end
 
   private

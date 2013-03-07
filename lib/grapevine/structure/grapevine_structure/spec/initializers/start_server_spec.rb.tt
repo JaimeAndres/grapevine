@@ -1,0 +1,9 @@
+describe <%= app_name.camelize %>::Application do
+
+  describe 'root resource' do
+    it 'GET /' do
+      get '/'
+      last_response.status.should == 200
+    end
+  end
+end

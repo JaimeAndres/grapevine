@@ -58,7 +58,8 @@ module Structure
     def opts_with_version(version)
       {
         version: version,
-        app_name: application_name
+        app_name: application_name,
+        verbose: false
       }
     end
 
