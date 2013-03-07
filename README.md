@@ -54,6 +54,20 @@ error_formatter :txt
 * The enviroment to run the app is call ENV['GRAPEVINE_ENV'] so if you're going to deploy for production, don't forget
   to set a environment variable named 'GRAPEVINE_ENV'='production'
 
+## Credits
+All this work couldn't be possible without the existence of great projects like, so please refer to them to understand how they behave and how they can
+be used, that way you'll be able to design and implement your api with better pratices.
+
+* [grape](https://github.com/intridea/grape)
+* [roar](github.com/apotonick/roar)
+* [thor](https://github.com/wycats/thor)
+* [thin](https://github.com/macournoyer/thin/)
+* [rack](https://github.com/rack/rack)
+* [sequel](https://github.com/jeremyevans/sequel)
+* [debugger](https://github.com/cldwalker/debugger)
+
+This is not the complete list, this is just the list of those gems I'm declaring directly, so for all hidden gems thank you so much to exist. 
+
 ## Contributing
 
 1. Fork it
@@ -61,3 +75,6 @@ error_formatter :txt
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+This content is released under the [MIT License](LICENSE.txt).
