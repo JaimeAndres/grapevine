@@ -51,8 +51,10 @@ error_formatter :txt
 * The default web server is [thin](http://code.macournoyer.com/thin/) but you can change it in the gemfile
 * I really like rspec, that's why the project includes it
 
-* The enviroment to run the app is call ENV['GRAPEVINE_ENV'] so if you're going to deploy for production, don't forget
-  to set a environment variable named 'GRAPEVINE_ENV'='production'
+* The enviroment to run the app is call ENV['<MYAPP>'] so if you're going to deploy for production, don't forget
+  to set a environment variable named <MYAPP>='production' where <MYAPP> is the name of your app in uppercase and without spaces
+
+* As convention I suggest that the database for test should be named like development database but with '_test' suffix
 
 ## Credits
 All this work couldn't be possible without the existence of great projects like, so please refer to them to understand how they behave and how they can
