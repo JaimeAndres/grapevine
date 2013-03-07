@@ -17,7 +17,7 @@ module <%= app_name.camelize %>
     mount_routes
 
 
-    # uncomment mount_helpers method and include all helpers you have declared in helpers folder
+    # uncomment mount_helpers method and include all helpers you required from those declared in helpers folder
     # e.g. mount_helpers([::AppHelpers, ::ContextHelpers])
     #
     # mount_helpers([])

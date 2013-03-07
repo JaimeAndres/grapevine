@@ -1,0 +1,19 @@
+module <%= config[:app_name] %>
+  module <%= config[:version].upcase %>
+    class Routes < Grapevine::Routes
+
+      version <%= config[:version] %>, using: :path
+
+      # uncomment mount_helpers method and include all helpers you required from those declared in helpers folder
+      # e.g. mount_helpers([::AppHelpers, ::ContextHelpers])
+      #
+      # mount_helpers([])
+
+      resource :test_route do
+        get '/' do
+          { result: "this is the test route resource of <%= config[:version] %>" }
+        end
+      end
+    end
+  end
+end

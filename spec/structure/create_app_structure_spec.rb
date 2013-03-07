@@ -7,6 +7,7 @@ describe 'Create a Grapevine App' do
   end
 
   after :each do
+    FileUtils.cd destination_root
     FileUtils.remove_dir 'foo_app'
   end
 
@@ -26,7 +27,7 @@ describe 'Create a Grapevine App' do
   context 'Templates declaration' do
     before do
       Structure::Grapevine.new.new(app_name)
-    FileUtils.cd destination_root
+      FileUtils.cd destination_root
     end
 
     it 'should create config.ru correctly' do
