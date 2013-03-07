@@ -18,9 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To Start a new app just execute
 
-### Considerations
+```bash
+grapevine new <AppName>
+```
+
+Because the idea is to keep separated the versions of the api in the structure you have app/information.
+
+Inside that route it should exist as many directories as versions (v1, v2, v3) with just one file inside: routes.rb.
+
+If you want to follow the proposed convention, just name the directories as 'v1' and the file routes.rb (I know I'm repeating what's above but I think it's important)
+
+You can execute following command to create a routes file
+
+```bash
+grapevine add_api_version
+```
+
+The generated app will include debugger, and thin :)
+
+## Considerations
 * If you don't want to use the routes generator, place the new routes file inside app/information/<version_number>/routes.rb
 * The <version_number> format must be 'v1', 'v2', etc
 
@@ -31,6 +49,7 @@ format :txt
 error_formatter :txt
 ```
 * The default web server is [thin](http://code.macournoyer.com/thin/) but you can change it in the gemfile
+* I really like rspec, that's why the project includes it
 
 ## Contributing
 
