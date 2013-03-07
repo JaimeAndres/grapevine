@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 module <%= app_name.camelize %>
-  class Application < Grapevine::Application
+  class Application < Grapevine::API
   
     # mount_routes loads all routes under app/information/V<number>/routes.rb
     # you must follow the convention to use the app namespace, the version and the name of the class as routes

@@ -46,6 +46,16 @@ grapevine add_api_version
 
 The generated app will include debugger, and thin :)
 
+## Representers
+
+Just create a module and include Grapevine::Representer
+
+```ruby
+module BookRepresenter
+  include Grapevine::Representer
+end
+```
+
 ## Considerations
 * If you don't want to use the routes generator, place the new routes file inside app/information/<version_number>/routes.rb
 * The <version_number> format must be 'v1', 'v2', etc

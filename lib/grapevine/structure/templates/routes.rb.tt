@@ -1,8 +1,8 @@
 module <%= config[:app_name] %>
   module <%= config[:version].upcase %>
-    class Routes < Grapevine::Routes
+    class Routes < Grapevine::API
 
-      version <%= config[:version] %>, using: :path
+      version '<%= config[:version] %>', using: :path
 
       # uncomment mount_helpers method and include all helpers you required from those declared in helpers folder
       # e.g. mount_helpers([::AppHelpers, ::ContextHelpers])
