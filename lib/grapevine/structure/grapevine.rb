@@ -9,9 +9,12 @@ module Structure
       File.dirname(__FILE__)
     end
 
-    desc "new <AppName>", "create a new app"
+    method_option :withdb, type: :string, default: ''
+    desc "new <AppName> --withdb sequel|activerecord", "create a new app, --withdb is optional"
     def new(app_name)
-      Structure::GrapevineSkeleton.start([app_name])
+      withdb = options[:withdb] =~ /^(sequel|activerecord)$/ ? options[:withdb] : ''
+
+      Structure::GrapevineSkeleton.start([app_name, withdb])
     end
 
     desc "add_api_version", "creates a new routes.rb file under the new incremented version folder"

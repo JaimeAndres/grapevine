@@ -1,0 +1,25 @@
+class DbConfig
+
+  def self.connect
+
+    if ENV["<%= app_name.camelize.upcase %>"] == 'test'
+      ENV['DATABASE'] = "#{ENV['DATABASE']}_test"
+    end
+
+    Sequel::Model.plugin :timestamps
+    Sequel::Model.plugin :validation_helpers
+
+
+    database = {
+                  adapter: ENV['ADAPTER'],
+                  host: ENV['HOST'],
+                  port: ENV['PORT'],
+                  database: ENV['DATABASE'],
+                  username: ENV['USERNAME'],
+                  password: ENV['PASSWORD']
+                  encoding: 'urf8'
+                } 
+
+    Sequel::Model.db = Sequel.connect(database)
+  end
+end

@@ -1,0 +1,22 @@
+require 'tasks/standalone_migrations'
+
+StandaloneMigrations::Configurator.environments_config do |env|
+
+  env.on ENV["<%= app_name.camelize.upcase %>"] do
+  
+    if ENV["<%= app_name.camelize.upcase %>"] == 'test'
+      ENV['DATABASE'] = "#{ENV['DATABASE']}_test"
+    end
+
+    return {
+      adapter:  <%= ENV['ADAPTER']  %>,
+      host:     <%= ENV['HOST']     %>,
+      port:     <%= ENV['PORT']     %>,
+      username: <%= ENV['USERNAME'] %>,
+      password: <%= ENV['PASSWORD'] %>,
+      database: <%= ENV['DATABASE'] %>,
+      encoding: 'utf8'
+    }
+
+  end
+end

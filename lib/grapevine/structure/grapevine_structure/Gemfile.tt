@@ -5,6 +5,15 @@ ruby '1.9.3'
 gem 'grapevine'
 gem 'roar'
 
+<% unless withdb.empty? %>
+
+<% if withdb == 'activerecord' %>
+gem 'standalone_migrations'
+<% end %>
+
+gem '<%= withdb %>'
+<% end %>
+
 group :test do
   gem 'rspec'
   gem 'rack-test'

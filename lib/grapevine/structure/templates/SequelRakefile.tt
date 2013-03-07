@@ -1,0 +1,46 @@
+require "rake/testtask"
+require "sequel"
+
+namespace "db" do
+
+  if ENV["<%= app_name.camelize.upcase %>"] == 'test'
+    ENV['DATABASE'] = "#{ENV['DATABASE']}_test"
+  end
+
+  database_url = {
+                   adapter:  <%= ENV['ADAPTER']  %>,
+                   host:     <%= ENV['HOST']     %>,
+                   port:     <%= ENV['PORT']     %>,
+                   username: <%= ENV['USERNAME'] %>,
+                   password: <%= ENV['PASSWORD'] %>,
+                   database: <%= ENV['DATABASE'] %>,
+                   encoding: 'utf8',
+                   test:     true
+                 }
+
+  task :migrate do |t|
+    version = nil
+    Sequel.extension :migration
+    db = Sequel.connect(database_url)
+
+    puts "Running migrations..."  unless ENV['RACK_ENV'] == 'test'
+    Sequel::Migrator.apply(db, 'db/migrate', version && version.to_i)
+    db.disconnect
+
+    Rake::Task["db:dump_schema"].execute
+  end
+
+  task :dump_schema do |t|
+    require 'sequel'
+    Sequel.extension :schema_dumper
+    schema_file="#{File.dirname(__FILE__)}/db/schema.rb"
+    db = Sequel.connect(database_url)
+
+    puts 'Dumping schema...' unless ENV['RACK_ENV'] == 'test'
+    open(schema_file, 'w') do |f|
+      f << db.dump_schema_migration(:same_db => false)
+    end
+    db.disconnect
+  end
+end
+

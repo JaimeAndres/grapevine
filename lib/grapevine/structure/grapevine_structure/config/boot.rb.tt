@@ -4,11 +4,21 @@ require 'grapevine'
 # Set up gems listed in the Gemfile.
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
-ENV['GRAPEVINE_ENV'] ||= 'development'
+ENV['<%= app_name.camelize.upcase %>'] ||= 'development'
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+
+# Initializers
+Dir[File.dirname(__FILE__) + '/initializers/*.rb'].each do |file|
+  require file
+end
 
 # Application files
 Dir[File.dirname(__FILE__) + '/../app/**/*.rb'].each do |file|
   require file
 end
+
+<% unless withdb.empty? %>
+# it's important to connect to the database
+DbConfig.connect
+<% end %>

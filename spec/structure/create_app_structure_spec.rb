@@ -41,6 +41,13 @@ describe 'Create a Grapevine App' do
     end
   end
 
+  context 'db configuration' do
+    it 'should create the db if the argument is sent' do
+      Structure::Grapevine.start(['new', app_name, '--withdb'])
+      FileUtils.cd destination_root
+    end
+  end
+
   private
 
   def app_name
