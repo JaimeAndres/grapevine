@@ -24,6 +24,14 @@ To Start a new app just execute
 grapevine new <AppName>
 ```
 
+or
+
+```bash
+grapevine new <AppName> --withdb <sequel|activerecord> --dbms <pg|mysql2>
+```
+
+The option --dbms is pg as default in case you don't want to include it
+
 Because the idea is to keep separated the versions of the api in the structure you have app/information.
 
 Inside that route it should exist as many directories as versions (v1, v2, v3) with just one file inside: routes.rb.
@@ -56,6 +64,17 @@ error_formatter :txt
 
 * As convention I suggest that the database for test should be named like development database but with '_test' suffix
 
+* You can run migrations
+
+```bash
+rake db:new_migration name=<name_of_the_file_without_extension>
+rake db:migrate
+```
+
+1) If you choose activerecord please refer to [standalone-migrations](https://github.com/thuss/standalone-migrations)
+2) If you choose sequel please refer to [sequel](https://github.com/jeremyevans/sequel))
+
+
 ## Credits
 All this work couldn't be possible without the existence of great projects like, so please refer to them to understand how they behave and how they can
 be used, that way you'll be able to design and implement your api with better pratices.
@@ -66,6 +85,7 @@ be used, that way you'll be able to design and implement your api with better pr
 * [thin](https://github.com/macournoyer/thin/)
 * [rack](https://github.com/rack/rack)
 * [sequel](https://github.com/jeremyevans/sequel)
+* [standalone-migrations](https://github.com/thuss/standalone-migrations)
 * [debugger](https://github.com/cldwalker/debugger)
 
 This is not the complete list, this is just the list of those gems I'm declaring directly, so for all hidden gems thank you so much to exist. 
