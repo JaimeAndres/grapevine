@@ -10,11 +10,16 @@ module Structure
     end
 
     method_option :withdb, type: :string, default: ''
-    desc "new <AppName> --withdb sequel|activerecord", "create a new app, --withdb is optional"
+    method_option :dbms, type: :string, default: 'pg'
+    desc "new <AppName> --withdb sequel|activerecord --dbms pg|mysql2", "create a new app, --withdb is optional"
     def new(app_name)
-      withdb = options[:withdb] =~ /^(sequel|activerecord)$/ ? options[:withdb] : ''
+      if options[:dbms] =~ /^(pg|mysql2)$/
+        withdb = options[:withdb] =~ /^(sequel|activerecord)$/ ? options[:withdb] : ''
 
-      Structure::GrapevineSkeleton.start([app_name, withdb])
+        Structure::GrapevineSkeleton.start([app_name, withdb, options[:dbms]])
+      else
+        p "new <AppName> --withdb sequel|activerecord --dbms pg|mysql2", "create a new app, --withdb is optional"
+      end
     end
 
     desc "add_api_version", "creates a new routes.rb file under the new incremented version folder"

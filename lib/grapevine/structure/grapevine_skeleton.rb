@@ -8,8 +8,9 @@ module Structure
       File.dirname(__FILE__)
     end
 
-    argument :app_name
+    argument :app_name, type: :string
     argument :withdb, type: :string
+    argument :dbms, type: :string
     def create_app
       exist_directory!
       create_directory('grapevine_structure', app_directory)

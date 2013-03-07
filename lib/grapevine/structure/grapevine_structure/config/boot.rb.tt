@@ -1,4 +1,8 @@
 require 'rubygems'
+
+require 'dotenv'
+Dotenv.load
+
 require 'grapevine'
 
 # Set up gems listed in the Gemfile.
@@ -19,6 +23,7 @@ Dir[File.dirname(__FILE__) + '/../app/**/*.rb'].each do |file|
 end
 
 <% unless withdb.empty? %>
+require 'active_record'
 # it's important to connect to the database
 DbConfig.connect
 <% end %>

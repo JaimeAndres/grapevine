@@ -6,12 +6,12 @@ gem 'grapevine'
 gem 'roar'
 
 <% unless withdb.empty? %>
+gem '<%= dbms %>'
+gem '<%= withdb %>'
 
 <% if withdb == 'activerecord' %>
 gem 'standalone_migrations'
 <% end %>
-
-gem '<%= withdb %>'
 <% end %>
 
 group :test do
@@ -20,6 +20,7 @@ group :test do
 end
 
 group :test, :development do
+  gem 'dotenv'
   gem 'thin'
   gem 'debugger'
 end

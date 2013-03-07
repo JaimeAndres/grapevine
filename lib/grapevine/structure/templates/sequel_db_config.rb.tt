@@ -16,7 +16,7 @@ class DbConfig
                   port: ENV['PORT'],
                   database: ENV['DATABASE'],
                   username: ENV['USERNAME'],
-                  password: ENV['PASSWORD']
+                  password: ENV['PASSWORD'],
                   encoding: 'urf8'
                 } 
 

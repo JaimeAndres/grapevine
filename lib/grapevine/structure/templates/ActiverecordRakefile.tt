@@ -1,3 +1,4 @@
+require 'dotenv/tasks'
 require 'tasks/standalone_migrations'
 
 StandaloneMigrations::Configurator.environments_config do |env|
@@ -9,6 +10,9 @@ StandaloneMigrations::Configurator.environments_config do |env|
     end
 
     return {
+      <% if dbms == 'mysql' %>
+      socket:   <%= ENV['SOCKET']   %>,
+      <% end %>
       adapter:  <%= ENV['ADAPTER']  %>,
       host:     <%= ENV['HOST']     %>,
       port:     <%= ENV['PORT']     %>,
