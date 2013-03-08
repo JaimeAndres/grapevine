@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "json"
   gem.add_dependency "grape"
   gem.add_dependency "i18n"
+  gem.add_dependency "roar"
 
   # dev_dependencies
   gem.add_development_dependency "rspec"

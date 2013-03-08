@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 
+gem 'rake'
 gem 'grapevine'
-gem 'roar'
 
 <% unless withdb.empty? %>
 gem '<%= withdb %>'

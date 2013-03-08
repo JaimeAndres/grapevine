@@ -17,13 +17,23 @@ Dir[File.dirname(__FILE__) + '/initializers/*.rb'].each do |file|
   require file
 end
 
+<% unless withdb.empty? %>
+
+<% if withdb == 'activerecord' %>
+
+require 'active_record'
+<% elsif withdb == 'sequel' %>
+
+require 'sequel'
+<% end %>
+
+# it's important to connect to the database
+DbConfig.connect
+<% end %>
+
 # Application files
 Dir[File.dirname(__FILE__) + '/../app/**/*.rb'].each do |file|
   require file
 end
 
-<% unless withdb.empty? %>
-require 'active_record'
-# it's important to connect to the database
-DbConfig.connect
-<% end %>
+

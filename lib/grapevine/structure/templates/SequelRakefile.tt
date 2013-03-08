@@ -1,6 +1,9 @@
+require 'dotenv'
 require 'dotenv/tasks'
 require "rake/testtask"
 require "sequel"
+
+Dotenv.load
 
 namespace "db" do
 
@@ -10,14 +13,14 @@ namespace "db" do
 
   database_url = {
                    <% if dbms == 'mysql' %>
-                   socket:   <%= ENV['SOCKET']   %>,
+                   socket:   ENV['SOCKET'],
                    <% end %>
-                   adapter:  <%= ENV['ADAPTER']  %>,
-                   host:     <%= ENV['HOST']     %>,
-                   port:     <%= ENV['PORT']     %>,
-                   username: <%= ENV['USERNAME'] %>,
-                   password: <%= ENV['PASSWORD'] %>,
-                   database: <%= ENV['DATABASE'] %>,
+                   adapter:  ENV['ADAPTER'],
+                   host:     ENV['HOST'],
+                   port:     ENV['PORT'],
+                   username: ENV['USERNAME'],
+                   password: ENV['PASSWORD'],
+                   database: ENV['DATABASE'],
                    encoding: 'utf8',
                    test:     true
                  }
