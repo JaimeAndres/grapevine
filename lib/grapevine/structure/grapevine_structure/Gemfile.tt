@@ -6,12 +6,14 @@ gem 'grapevine'
 gem 'roar'
 
 <% unless withdb.empty? %>
-gem '<%= dbms %>'
 gem '<%= withdb %>'
 
 <% if withdb == 'activerecord' %>
+gem 'activerecord', '~> 3.2.12'
 gem 'standalone_migrations'
-<% end %>
+
+<% elsif withdb == 'sequel' %>
+gem 'sequel'
 <% end %>
 
 group :test do
