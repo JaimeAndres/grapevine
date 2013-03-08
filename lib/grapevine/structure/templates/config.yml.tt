@@ -1,0 +1,15 @@
+development:
+  host: <%= ENV['HOST'] %>
+  port: <%= ENV['PORT'] %>
+  adapter: <%= ENV['ADAPTER'] %>
+  database: <%= ENV['DATABASE'] %>
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+
+test:
+  host: <%= ENV['HOST'] %>
+  port: <%= ENV['PORT'] %>
+  adapter: <%= ENV['ADAPTER'] %>
+  database: <%= ENV['DATABASE'] %> + "_test"
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>

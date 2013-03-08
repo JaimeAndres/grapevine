@@ -68,6 +68,10 @@ module Structure
     def create_db_structure_for(orm)
       create_template("#{orm.titleize}Rakefile", 'Rakefile', { force: true })
       create_template("#{orm}_db_config.rb", 'config/initializers/db_config.rb')
+
+      if orm == 'activerecord'
+        create_template('config.yml', 'db/config.yml')
+      end
     end
   end
 end

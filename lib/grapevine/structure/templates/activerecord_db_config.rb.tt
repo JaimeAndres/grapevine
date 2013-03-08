@@ -16,7 +16,7 @@ class DbConfig
         database: ENV['DATABASE'],
         username: ENV['USERNAME'],
         password: ENV['PASSWORD'],
-        encoding: 'urf8'
+        encoding: 'utf8'
       } 
     )
   end

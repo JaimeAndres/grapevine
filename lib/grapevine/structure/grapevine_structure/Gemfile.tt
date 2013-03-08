@@ -10,7 +10,7 @@ gem '<%= withdb %>'
 
 <% if withdb == 'activerecord' %>
 gem 'activerecord', '~> 3.2.12'
-gem 'standalone_migrations'
+gem 'standalone_migrations', '~> 2.0.5'
 
 <% elsif withdb == 'sequel' %>
 gem 'sequel'

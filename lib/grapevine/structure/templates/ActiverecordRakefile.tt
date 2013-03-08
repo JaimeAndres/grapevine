@@ -1,5 +1,8 @@
+require 'dotenv'
 require 'dotenv/tasks'
 require 'tasks/standalone_migrations'
+
+Dotenv.load
 
 StandaloneMigrations::Configurator.environments_config do |env|
 
@@ -11,14 +14,14 @@ StandaloneMigrations::Configurator.environments_config do |env|
 
     return {
       <% if dbms == 'mysql' %>
-      socket:   <%= ENV['SOCKET']   %>,
+      socket:   ENV['SOCKET'],
       <% end %>
-      adapter:  <%= ENV['ADAPTER']  %>,
-      host:     <%= ENV['HOST']     %>,
-      port:     <%= ENV['PORT']     %>,
-      username: <%= ENV['USERNAME'] %>,
-      password: <%= ENV['PASSWORD'] %>,
-      database: <%= ENV['DATABASE'] %>,
+      adapter:  ENV['ADAPTER'],
+      host:     ENV['HOST'],
+      port:     ENV['PORT'],
+      username: ENV['USERNAME'],
+      password: ENV['PASSWORD'],
+      database: ENV['DATABASE'],
       encoding: 'utf8'
     }
 
