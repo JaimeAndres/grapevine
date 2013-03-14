@@ -1,9 +1,12 @@
-require 'dotenv'
-require 'dotenv/tasks'
 require "rake/testtask"
 require "sequel"
 
-Dotenv.load
+if ['development', 'test'].include?(ENV['<%= app_name.camelize.upcase %>'])
+  require 'dotenv'
+  require 'dotenv/tasks'
+
+  Dotenv.load
+end
 
 namespace "db" do
 

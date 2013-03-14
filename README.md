@@ -1,6 +1,16 @@
 # Grapevine
 
-TODO: Write a gem description
+[Grape](https://github.com/intridea/grape) is a great micro-framework to create REST-like APIs, however the strongest point is, at the same time, the weakest point. There's no structure, so you can decide how to structure your code, how to define your app architecture
+and that could lead to ... a big mess, because a project without order could have duplicated code, buggy code and ultimately incorrect solutions for the proposed problem.
+
+Grapevine is an opinionated structure - with desires to become a framework ;) - to use [Grape](https://github.com/intridea/grape) to create REST-like APIs.
+
+This structure includes [roar](github.com/apotonick/roar) for hypermediaAPI in case you want to deliver your api that way. It also includes rspec and debugger so you can start testing your api as soon as you begin writing it.
+
+You can create an app with a db connection; you can decide to use activerecord or sequel and no matter which one you choose you can use postgresql or mysql, obviously you can decide to use a blank project without any specific db connection well just follow the instructions describe below.
+
+Last but not least, in fact I think this is the main feature of grapevine, it's the structure which tries to keep good practices for class separations and mainly around the DCI concept, however in this structure instead of using *Interaction* the proposed name is *Information*, please refer
+to ... for more info
 
 ## Installation
 

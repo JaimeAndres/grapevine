@@ -1,8 +1,11 @@
-require 'dotenv'
-require 'dotenv/tasks'
 require 'tasks/standalone_migrations'
 
-Dotenv.load
+if ['development', 'test'].include?(ENV['<%= app_name.camelize.upcase %>'])
+  require 'dotenv'
+  require 'dotenv/tasks'
+
+  Dotenv.load
+end
 
 StandaloneMigrations::Configurator.environments_config do |env|
 

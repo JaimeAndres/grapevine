@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   # dependencies
+  gem.add_dependency "yard"
   gem.add_dependency "thor"
   gem.add_dependency "json"
   gem.add_dependency "grape"

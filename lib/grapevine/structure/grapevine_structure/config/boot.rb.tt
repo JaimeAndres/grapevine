@@ -1,14 +1,16 @@
 require 'rubygems'
 
-require 'dotenv'
-Dotenv.load
+ENV['<%= app_name.camelize.upcase %>'] ||= 'development'
+
+if ['development', 'test'].include?(ENV['<%= app_name.camelize.upcase %>'])
+  require 'dotenv'
+  Dotenv.load
+end
 
 require 'grapevine'
 
 # Set up gems listed in the Gemfile.
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
-
-ENV['<%= app_name.camelize.upcase %>'] ||= 'development'
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
