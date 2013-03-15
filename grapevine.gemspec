@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["andresdavila6@gmail.com"]
   gem.description   = %q{creates a work environment including grape, roar, rspec, sequel to develop REST architectures}
   gem.summary       = %q{REST architecture with DCI in mind thanks to grape}
-  gem.homepage      = ""
+  gem.homepage      = "http://jaimeandres.github.com/grapevine/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
