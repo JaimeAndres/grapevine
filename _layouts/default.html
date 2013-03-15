@@ -3,8 +3,8 @@
   <head>
     <title>grapevine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/assets/css/custom.css" rel="stylesheet" media="screen">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/css/custom.css" rel="stylesheet" media="screen">
   </head>
   <body {% if page.scroll_spy %}data-spy="scroll" data-target="#gvDocs"{% endif %}>
     {{ content }}
@@ -14,16 +14,16 @@
           <div class="row">
             <div class="span7">
               <ul class="nav">
-                <li {% if page.is_active[0] %}class="active"{% endif %}><a href="/"><i class="icon-leaf"></i>home</a></li>
-                <li {% if page.is_active[1] %}class="active"{% endif %}><a href="/docs.html"><i class="icon-file"></i>docs</a></li>
+                <li {% if page.is_active[0] %}class="active"{% endif %}><a href="/grapevine"><i class="icon-leaf"></i>home</a></li>
+                <li {% if page.is_active[1] %}class="active"{% endif %}><a href="docs.html"><i class="icon-file"></i>docs</a></li>
                 <li><a href="https://github.com/JaimeAndres/grapevine"><i class="icon-cog"></i>source code</a></li>
-                <li {% if page.is_active[2] %}class="active"{% endif %}><a href="/resources.html"><i class="icon-th"></i>resources</a></li>
-                <li {% if page.is_active[3] %}class="active"{% endif %}><a href="/about.html"><i class="icon-tag"></i>about</a></li>
+                <li {% if page.is_active[2] %}class="active"{% endif %}><a href="resources.html"><i class="icon-th"></i>resources</a></li>
+                <li {% if page.is_active[3] %}class="active"{% endif %}><a href="about.html"><i class="icon-tag"></i>about</a></li>
               </ul>
             </div>
             
             <div class="neo-logo">
-              <a href="http://www.neo.com" target="_blank"><img src="/assets/img/neo-logo.png" alt="neo" /></a>
+              <a href="http://www.neo.com" target="_blank"><img src="assets/img/neo-logo.png" alt="neo" /></a>
             <div>
           <div>
         </div>
@@ -31,7 +31,7 @@
     </div>
 
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
 
