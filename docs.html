@@ -1,0 +1,157 @@
+---
+layout: subnavigation_pages
+is_active: [false, true, false, false]
+
+navigation_items:
+- { name: 'install', description: 'Install' }
+- { name: 'gettingStarted', description: 'Getting Started' }
+- { name: 'routes', description: 'Routes' }
+- { name: 'representers', description: 'Representers' }
+- { name: 'migrations', description: 'Migrations' }
+---
+<section id="install">
+  <div class="page-header">
+    <h1>Install</h1>
+  </div>
+  <p>
+    Add this line to your application's Gemfile:
+    {% highlight bash %}
+      gem 'grapevine'
+    {% endhighlight %}
+  </p>
+  <p>
+    And then execute:
+    {% highlight bash %}
+      $ bundle
+    {% endhighlight %}
+  </p>
+  <p>
+    Or install it yourself as:
+    {% highlight bash %}
+      $ gem install grapevine
+    {% endhighlight %}
+  </p>
+</section>
+
+<section id="gettingStarted">
+  <div class="page-header">
+    <h1>Getting Started</h1>
+  </div>
+  <p>
+    To Start a new app just execute
+
+      {% highlight bash %}
+        $ grapevine new <AppName>
+      {% endhighlight %}
+
+      or
+  </p>
+  <p>
+    {% highlight bash %}
+      $ grapevine new <AppName> --withdb <sequel|activerecord> --dbms <pg|mysql2>
+    {% endhighlight %}
+
+    The option --dbms is pg (postgresql) as default in case you don't want to include it
+  </p>
+  <p>
+    {% highlight bash %}
+      $ cd <your_app_name>
+      $ bundle install
+    {% endhighlight %}
+
+    Take a look to the generated structure, check the Gemfile, it includes rspec, debugger and thin. You also must create a .env file (you have .env.sample file)
+    where you can setup your environment variables
+  </p>
+
+  <p>
+    The enviroment to run the app is call ENV['<MYAPP>'] so if you're going to deploy for production, don't forget
+    to set a environment variable named <MYAPP>='production' where <MYAPP> is the name of your app in uppercase and without spaces
+  </p>
+</section>
+
+<section id="routes">
+  <div class="page-header">
+    <h1>Routes</h1>
+  </div>
+  <p>
+    Open config/application.rb and set the response for the index resource.
+  </p>
+  <p>
+    The idea is to keep separated the versions of the api, so in the structure you have app/information/ Inside you can create a directory per version, or you
+    can execute the generator command:
+
+    {% highlight bash %}
+      $ grapevine add_api_version
+    {% endhighlight %}
+
+    This command will create automatically the new version directory (e.g. if you have v1/ it will create v2/) and it will place a file called routes.rb inside.
+  </p>
+  <p>
+    Once you open routes.rb you'll see the proposed structure, to enable that route open /config/application.rb and declare it in the mount_routes method
+
+    {% highlight ruby %}
+      # e.g. MyApp::V1::Routes
+      mount_routes [MyApp::V1::Routes]
+    {% endhighlight %}
+  </p>
+
+  <p>
+    Following the same logic any helper you create as module (please refer to <a href="https://github.com/intridea/grape">Grape documentation</a>) you can include
+    as part of the current route or in application.rb.
+
+    The proposed solution is to create a module with and place it inside app/helpers/
+
+    {% highlight ruby %}
+      # e.g. MyApp::CustomHelpers and AuthenticationHelpers
+      mount_routes [MyApp::CustomHelpers, ::AuthenticationHelpers]
+    {% endhighlight %}
+  </p>
+
+  <p>
+    You can start coding with the grape convention, when you want to check your services, just run
+
+    {% highlight bash %}
+      $ thin start
+    {% endhighlight %}
+  </p>
+</section>
+
+<section id="representers">
+  <div class="page-header">
+    <h1>Representers</h1>
+  </div>
+  <p>
+    Just create a module or class, it's up to you, and include Grapevine::Representer.
+
+    {% highlight ruby %}
+      module BookRepresenter
+        include Grapevine::Representer
+      end
+    {% endhighlight %}
+
+    Please refer to <a href="https://github.com/apotonick/roar">roar</a> documentation.
+  </p>
+</section>
+<section id="migrations">
+  <div class="page-header">
+    <h1>Migrations</h1>
+  </div>
+  <p>
+    As convention I suggest that the database for test should be named like development database but with '_test' suffix
+
+    You can run migrations
+
+    {% highlight bash %}
+      rake db:new_migration name=<name_of_the_file_without_extension>
+      rake db:migrate
+    {% endhighlight %}
+   </p>
+   <ol>
+     <li>
+       If you choose activerecord please refer to <a href="https://github.com/thuss/standalone-migrations">standalone-migrations</a>
+     </li>
+     <li>
+       If you choose sequel please refer to <a href="https://github.com/jeremyevans/sequel">sequel</a>
+     </li>
+   </ol>
+</section>

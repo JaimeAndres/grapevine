@@ -1,0 +1,24 @@
+---
+layout: pages
+layout_centered: false
+scroll_spy: true
+---
+<div class="affix" id="gvDocs">
+  <ul class="nav nav-list gv-sidebar-nav affix">
+    <li class="active"> 
+        <i class="icon-chevron-right"></i>
+        <a href="#{{ page.navigation_items[0].name }}">{{ page.navigation_items[0].description }}</a>
+    </li>
+
+    {% for navigation_item in page.navigation_items offset:1 %}
+      <li>
+        <i class="icon-chevron-right"></i>
+        <a href="#{{ navigation_item.name }}">{{ navigation_item.description }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="span7 offset4 internal-content">
+  {{ content }}
+</div>
