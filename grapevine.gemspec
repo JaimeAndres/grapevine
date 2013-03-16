@@ -18,14 +18,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   # dependencies
-  gem.add_dependency "yard"
-  gem.add_dependency "thor"
-  gem.add_dependency "json"
-  gem.add_dependency "grape"
-  gem.add_dependency "i18n"
-  gem.add_dependency "roar"
+  gem.add_dependency "yard", "~> 0.8.5.2"
+  gem.add_dependency "thor", "~> 0.17.0"
+  gem.add_dependency "json", "~> 1.7.7"
+  gem.add_dependency "grape", "~> 0.3.2"
+  gem.add_dependency "i18n", "~> 0.6.4"
+  gem.add_dependency "roar", "~> 0.11.12"
 
   # dev_dependencies
-  gem.add_development_dependency "rspec"
-  gem.add_development_dependency "debugger"
+  gem.add_development_dependency "rspec", "~> 2.13.0"
+  gem.add_development_dependency "debugger", "~> 1.5.0"
 end
