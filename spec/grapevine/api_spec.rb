@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Grapevine::Application do
+describe Grapevine::API do
 
   module Test
   end
 
-  subject { Class.new(Grapevine::Application) }
+  subject { Class.new(Grapevine::API) }
 
   def app; subject end
 

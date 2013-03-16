@@ -13,13 +13,11 @@ module Structure
     method_option :dbms, type: :string, default: 'pg'
     desc "new <AppName> --withdb sequel|activerecord --dbms pg|mysql2", "create a new app, --withdb is optional"
     def new(app_name)
-      if options[:dbms] =~ /^(pg|mysql2)$/
-        withdb = options[:withdb] =~ /^(sequel|activerecord)$/ ? options[:withdb] : ''
+      error_message = "new <AppName> --withdb sequel|activerecord --dbms pg|mysql2", "create a new app, --withdb is optional"
+      p error_message if options.include?(:withdb) && withdb(options[:witdb]) == ''
 
-        Structure::GrapevineSkeleton.start([app_name, withdb, options[:dbms]])
-      else
-        p "new <AppName> --withdb sequel|activerecord --dbms pg|mysql2", "create a new app, --withdb is optional"
-      end
+      a = dbms(options[:dbms])
+      Structure::GrapevineSkeleton.start([app_name, withdb(options[:withdb]), dbms(options[:dbms])])
     end
 
     desc "add_api_version", "creates a new routes.rb file under the new incremented version folder"
@@ -37,6 +35,22 @@ module Structure
     end
 
     private
+
+    def dbms(options)
+      if !options.nil? || options =~ /^(pg|mysql2)$/
+        options
+      else
+        "pg"
+      end
+    end
+
+    def withdb(options)
+      if !options.nil? && options =~ /^(sequel|activerecord)$/
+        options
+      else
+        ""
+      end
+    end
 
     def information_path
       "app/information"
