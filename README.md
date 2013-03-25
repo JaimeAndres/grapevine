@@ -27,6 +27,8 @@ Or install it yourself as:
 
 ## Usage
 
+Please refer to [grapevine docs](http://www.rubygrapevine.com/docs)
+
 
 ## Credits
 All this work couldn't be possible without the existence of great projects like, so please refer to them to understand how they behave and how they can
