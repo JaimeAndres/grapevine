@@ -9,7 +9,7 @@ module <%= config[:app_name] %>
       #
       # mount_helpers([])
 
-      # uncomment mount_helpers method and include all routes you required
+      # uncomment mount_routes method and include all routes you required
       # e.g. mount_routes([AppName::V1::Routes, ::MyCustomRoutes])
       #
       # mount_routes([])
