@@ -4,7 +4,7 @@
 
 Grapevine is an opinionated structure - with desires to become a framework ;) - to use [Grape](https://github.com/intridea/grape) to create REST-like APIs.
 
-This structure includes [roar](github.com/apotonick/roar) for hypermediaAPI in case you want to deliver your api that way. It also includes rspec and debugger so you can start testing your api as soon as you begin writing it.
+This structure includes [roar](github.com/apotonick/roar) for hypermediaAPI in case you want to deliver your api that way. It also includes rspec and byebug so you can start testing your api as soon as you begin writing it.
 
 Please refer to docs so you can see what you get besides the possibility to start with an structure
 
@@ -41,9 +41,10 @@ be used, that way you'll be able to design and implement your api with better pr
 * [rack](https://github.com/rack/rack)
 * [sequel](https://github.com/jeremyevans/sequel)
 * [standalone-migrations](https://github.com/thuss/standalone-migrations)
-* [debugger](https://github.com/cldwalker/debugger)
+* [byebug](https://github.com/deivid-rodriguez/byebug)
 
 This is not the complete list, this is just the list of those gems I'm declaring directly, so for all hidden gems thank you so much to exist. 
+
 
 ## Contributing
 

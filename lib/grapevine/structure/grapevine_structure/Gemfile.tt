@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.0'
 
 gem 'rake'
 gem 'grapevine'
@@ -9,8 +9,8 @@ gem 'grapevine'
 gem '<%= withdb %>'
 
 <% if withdb == 'activerecord' %>
-gem 'activerecord', '~> 3.2.12'
-gem 'standalone_migrations', '~> 2.0.5'
+gem 'activerecord', '~> 4.1.1'
+gem 'standalone_migrations', '~> 2.1.4'
 
 <% elsif withdb == 'sequel' %>
 gem 'sequel'
@@ -25,5 +25,5 @@ end
 group :test, :development do
   gem 'dotenv'
   gem 'thin'
-  gem 'debugger'
+  gem 'byebug'
 end

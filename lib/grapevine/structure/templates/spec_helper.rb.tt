@@ -4,7 +4,7 @@ ENV["<%= app_name.camelize.upcase %>"] ||= 'test'
 
 require File.expand_path("../../config/application", __FILE__)
 
-require 'debugger'
+require 'byebug'
 require 'rack'
 require 'rack/test'
 

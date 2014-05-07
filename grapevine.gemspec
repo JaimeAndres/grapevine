@@ -17,15 +17,18 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  # ruby version
+  gem.required_ruby_version     = '>= 2.0.0'
+
   # dependencies
-  gem.add_dependency "yard", "~> 0.8.5.2"
-  gem.add_dependency "thor", "~> 0.17.0"
-  gem.add_dependency "json", "~> 1.7.7"
-  gem.add_dependency "grape", "~> 0.3.2"
-  gem.add_dependency "i18n", "~> 0.6.4"
-  gem.add_dependency "roar", "~> 0.11.12"
+  gem.add_dependency "yard", "~> 0.8.7.4"
+  gem.add_dependency "thor", "~> 0.19.1"
+  gem.add_dependency "json", "~> 1.8.1"
+  gem.add_dependency "grape", "~> 0.7.0"
+  gem.add_dependency "i18n", "~> 0.6.9"
+  gem.add_dependency "roar", "~> 0.12.7"
 
   # dev_dependencies
   gem.add_development_dependency "rspec", "~> 2.13.0"
-  gem.add_development_dependency "debugger", "~> 1.5.0"
+  gem.add_development_dependency "byebug", "~> 3.1.2"
 end
