@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  gem.required_ruby_version = '~> 1.9.3'
+
   # dependencies
   gem.add_dependency "yard", "~> 0.8.7.4"
   gem.add_dependency "thor", "~> 0.19.1"
