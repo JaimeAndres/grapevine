@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe 'Create a Grapevine App' do
 
+  let(:app_name) { 'FooApp' }
+
   before :each do
     FileUtils.cd destination_root
   end
@@ -46,11 +48,5 @@ describe 'Create a Grapevine App' do
       Structure::Grapevine.start(['new', app_name, '--withdb'])
       FileUtils.cd destination_root
     end
-  end
-
-  private
-
-  def app_name
-    'FooApp'
   end
 end
