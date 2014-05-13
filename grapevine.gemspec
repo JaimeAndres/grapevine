@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   # ruby version
-  gem.required_ruby_version     = '>= 2.0.0'
+  gem.required_ruby_version     = '>= 1.9.3'
 
   # dependencies
   gem.add_dependency "yard", "~> 0.8.7.4"
@@ -30,5 +30,10 @@ Gem::Specification.new do |gem|
 
   # dev_dependencies
   gem.add_development_dependency "rspec", "~> 2.13.0"
-  gem.add_development_dependency "byebug", "~> 3.1.2"
+
+  if RUBY_VERSION == "1.9.3"
+    gem.add_development_dependency "debugger", "~> 1.6.6"
+  elsif RUBY_VERSION >= "2.0.0"
+    gem.add_development_dependency "byebug", "~> 3.1.2"
+  end
 end
