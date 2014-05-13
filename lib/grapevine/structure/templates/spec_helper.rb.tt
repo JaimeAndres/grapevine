@@ -4,7 +4,12 @@ ENV["<%= app_name.camelize.upcase %>"] ||= 'test'
 
 require File.expand_path("../../config/application", __FILE__)
 
-require 'byebug'
+if RUBY_VERSION == "1.9.3"
+  require 'debugger'
+elsif RUBY_VERSION >= "2.0.0"
+  require 'byebug'
+end
+
 require 'rack'
 require 'rack/test'
 

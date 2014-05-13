@@ -1,5 +1,10 @@
 require 'rubygems'
-require 'byebug'
+
+if RUBY_VERSION == "1.9.3"
+  require 'debugger'
+elsif RUBY_VERSION >= "2.0.0"
+  require 'byebug'
+end
 
 require 'rack'
 
