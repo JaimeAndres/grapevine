@@ -1,3 +1,3 @@
 module Grapevine
-  VERSION = "0.4.1.4"
+  VERSION = "0.4.2"
 end
