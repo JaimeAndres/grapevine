@@ -7,5 +7,5 @@ require 'roar'
 
 module Grapevine
   autoload :API, 'grapevine/api'
-  autoload :Representer, 'grapeview/representer'
+  autoload :Representer, 'grapevine/representer'
 end
