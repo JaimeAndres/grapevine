@@ -26,7 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "i18n", "~> 0.6.9"
   gem.add_dependency "roar", "~> 0.12.7"
 
-  gem.add_development_dependency "rspec", "~> 2.13.0"
+  gem.add_development_dependency "rspec"
 
   if RUBY_VERSION == "1.9.3"
     gem.add_development_dependency "debugger", "~> 1.6.6"
