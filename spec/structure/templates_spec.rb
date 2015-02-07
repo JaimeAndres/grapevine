@@ -15,9 +15,9 @@ describe 'Create Templates files' do
   it 'should add a new routes version file' do
     Structure::Grapevine.new.add_api_version
 
-    File.exists?('app/information/v1/routes.rb').should == true
+    expect(File.exists?('app/information/v1/routes.rb')).to eq(true)
 
     file = File.open('app/information/v1/routes.rb', 'r')
-    file.readline.should include "module FooApp"
+    expect(file.readline).to include "module FooApp"
   end
 end
