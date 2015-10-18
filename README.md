@@ -27,7 +27,7 @@ Or install it yourself as:
 
 ## Usage
 
-Please refer to [grapevine docs](http://www.rubygrapevine.com/docs)
+Please refer to [grapevine docs](http://diablourbano.com/grapevine/docs.html)
 
 
 ## Credits
